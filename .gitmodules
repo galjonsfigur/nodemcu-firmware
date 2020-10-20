@@ -7,3 +7,6 @@
 [submodule "app/libc/c99-snprintf"]
 	path = app/libc/c99-snprintf
 	url = https://github.com/weiss/c99-snprintf.git
+[submodule "app/lwip/esp82xx-nonos-linklayer"]
+	path = app/lwip/esp82xx-nonos-linklayer
+	url = https://github.com/d-a-v/esp82xx-nonos-linklayer

@@ -12,13 +12,8 @@
 #     a generated lib/image xxx.a ()
 #
 ifndef PDIR
-UP_EXTRACT_DIR = ..
-GEN_LIBS = liblwip.a
-COMPONENTS_liblwip =    api/liblwipapi.a	\
-					    app/liblwipapp.a	\
-					    core/liblwipcore.a	\
-						core/ipv4/liblwipipv4.a	\
-						netif/liblwipnetif.a
+	UP_EXTRACT_DIR = ..
+	GEN_LIBS = liblwip2-1460-feat.a
 endif
 
 
@@ -33,7 +28,7 @@ endif
 #	-DTXRX_TXBUF_DEBUG
 #	-DTXRX_RXBUF_DEBUG
 #	-DWLAN_CONFIG_CCX
-CONFIGURATION_DEFINES += -DPBUF_RSV_FOR_WLAN -DEBUF_LWIP
+# CONFIGURATION_DEFINES += -DPBUF_RSV_FOR_WLAN -DEBUF_LWIP
 
 #############################################################
 # Recursion Magic - Don't touch this!!

@@ -274,7 +274,7 @@ endif # TARGET
 #
 
 ifndef TARGET
-all: toolchain sdk_pruned pre_build buildinfo .subdirs
+all: toolchain sdk_pruned sdk_lwip pre_build buildinfo .subdirs
 else
 all: .subdirs $(OBJS) $(OLIBS) $(OIMAGES) $(OBINS) $(SPECIAL_MKTARGETS)
 endif
@@ -399,8 +399,13 @@ spiffs-image: bin/0x10000.bin
 ############ Note: this target needs moving into app/modules make ############
 .PHONY: pre_build
 
+#TODO: USE SDK_DIR and fix linklayer to proper include SDK
+sdk_lwip:
+	cd app/lwip && $(MAKE) PREFIX=$(TOOLCHAIN_ROOT) SDK_PATH="../../../$(SDK_REL_DIR)" \
+	-C esp82xx-nonos-linklayer -f Makefile.nodemcu all V=1
+	
 ifneq ($(wildcard $(TOP_DIR)/server-ca.crt),)
-pre_build: $(APP_DIR)/modules/server-ca.crt.h
+pre_build:	$(APP_DIR)/modules/server-ca.crt.h
 
 $(APP_DIR)/modules/server-ca.crt.h: $(TOP_DIR)/server-ca.crt
 	$(summary) MKCERT $(patsubst $(TOP_DIR)/%,%,$<)

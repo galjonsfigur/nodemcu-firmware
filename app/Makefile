@@ -73,7 +73,7 @@ COMPONENTS_eagle.app.v6 = 		\
 	platform/libplatform.a 		\
 	libc/liblibc.a 				\
 	$(LUA_DIR)/liblua.a 		\
-	lwip/liblwip.a 				\
+	lwip/liblwip2-1460-feat.a	\
 	smart/smart.a 				\
 	spiffs/spiffs.a 			\
 	fatfs/libfatfs.a			\
